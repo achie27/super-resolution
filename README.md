@@ -12,6 +12,11 @@ Pillow
 
 ## USAGE
 
+### Pretrained models
+
+1. Use this [link](https://drive.google.com/drive/folders/1ijaifz2YxUziiQZL8lrpo8urUTZc0SPq?usp=sharing) to download all the pretrained models.
+2. Put the contents of each folder, named by the model, in `architecture/{model}/pretrained_models/` 
+
 ### Super-resolving images or videos
 
 1. Configure `settings`, in `main.py`, for `input` and `output` folders.
@@ -27,13 +32,9 @@ Pillow
 3. Change other settings if need be.
 4. Run `test_quality.py` 
 
-### Pretrained models
-
-1. Use this [link](https://drive.google.com/drive/folders/1ijaifz2YxUziiQZL8lrpo8urUTZc0SPq?usp=sharing) to download all the pretrained models.
-2. Put the contents of each folder, named by the model, in `architecture/{model}/pretrained_models/` 
-
 ### My Hardware Specs
-
+```
 Intel Core i7-7700HQ CPU @ 2.80 GHZ
 NVIDIA GeForce GTX 1050 Ti (4GB)
 8GB DDR4 RAM
+```
