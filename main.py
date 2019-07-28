@@ -15,7 +15,7 @@ settings = {
 	"output": "hr/",
 	"image_types" : [".jpg", ".png"],
 	"video_types" : [".mp4", ".avi"],
-	"model"	: "espcn",		# srcnn, fsrcnn, espcn, edsr, srgan, esrgan, or prosr
+	"model"	: "esrgan",		# srcnn, fsrcnn, espcn, edsr, srgan, esrgan, or prosr
 	"scale" : 4				# 2 or 4
 }
 
@@ -62,9 +62,7 @@ def tensor_as_img(out, base, cb, cr, save = False):
 
 with torch.no_grad():
 
-	model = arch(settings['model'], settings['scale']).model
-	if settings['cuda']:
-		model = model.cuda()
+	model = arch(settings['model'], settings['scale'], settings['cuda']).getModel()
 	model.eval()
 
 	lr_images = []
