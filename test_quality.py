@@ -17,7 +17,7 @@ settings = {
     "subfolder_lr"          : "LR_bicubic/",
     "subfolder_hr"          : "HR/",
     "cuda"                  : True,
-    "model"                 : "espcn",
+    "model"                 : "espcn", #srcnn, fsrcnn, espcn, edsr, srgan, esrgan, or prosr
     "scale"                 : 4             # 2 or 4
 }
 
@@ -34,9 +34,7 @@ def main():
             os.makedirs(model_op_path)
 
         with torch.no_grad():
-            model = arch(settings['model'], settings['scale']).model
-            if settings['cuda']:
-                model = model.cuda()
+            model = arch(settings['model'], settings['scale'], settings['cuda']).getModel()
             model.eval()
 
             for lr_img in glob(d_path + '/*'):
