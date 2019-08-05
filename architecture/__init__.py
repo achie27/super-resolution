@@ -1,5 +1,6 @@
-import torch
 from pathlib import Path
+import torch
+
 from . import srcnn 
 from . import fsrcnn 
 from . import edsr 
@@ -9,7 +10,7 @@ from . import esrgan
 from . import prosr 
 
 class arch(object):
-	def __init__(self, model, upscale_factor = 2, cuda = False):
+	def __init__(self, model = 'espcn', upscale_factor = 4, cuda = False):
 		super(arch, self).__init__()
 		self.model = model
 		self.upscale_factor = upscale_factor
@@ -43,6 +44,7 @@ class arch(object):
 			)
 
 		pth = Path.cwd() / 'architecture' / self.model / 'pretrained_models' / ('x' + str(self.upscale_factor) + '.pth')
+		
 		if self.cuda:
 			tmp.load_state_dict(torch.load(pth, map_location = 'cuda'))
 			tmp = tmp.cuda()

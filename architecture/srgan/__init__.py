@@ -31,9 +31,9 @@ class UpsampleBlock(nn.Module):
 
 
 class SRGAN(nn.Module):
-    def __init__(self, n_residual_blocks, upsample_factor, num_channel=1, base_filter=64):
+    def __init__(self, upsample_factor, num_channel=1, base_filter=64):
         super(SRGAN, self).__init__()
-        self.n_residual_blocks = n_residual_blocks
+        self.n_residual_blocks = 16
         self.upsample_factor = upsample_factor
 
         self.conv1 = nn.Conv2d(num_channel, base_filter, kernel_size=9, stride=1, padding=4)
